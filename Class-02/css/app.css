@@ -1,0 +1,50 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.home {
+	background-color: bisque;
+}
+
+.navbar-links li {
+	border: 1px dotted #000;
+}
+
+.navbar-links a {
+	display: block;
+	padding: 10px;
+	background-color: orange;
+}
+
+.navbar-links .active {
+	text-transform: uppercase;
+	font-style: italic;
+	background-color: aquamarine;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+	  color: white;
+	  background-color: #222222 !important;
+  }
+
+  a {
+	  color: blanchedalmond;
+  }
+}
