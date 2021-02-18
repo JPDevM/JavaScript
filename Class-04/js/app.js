@@ -32,7 +32,7 @@ const error = () => {
 	throw new Error('El año es obligatorio');
 }
 
-function createCar(brandName, modelName, fullYear) {
+function createCar(brandName, modelName, fullYear = error()) {
 	if (!fullYear) {
 		throw new Error('El año es obligatorio');
 	}

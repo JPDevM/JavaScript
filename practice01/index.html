@@ -15,30 +15,23 @@
 
 <body>
   <div class="container">
-
     <div class="currency">
       <nav class="header">
-        <div class="from">
-          <p>
-            Peso</p>
-        </div>
-        <div class="change">
-          <button id="invertCurrency"><i class="fas fa-exchange-alt"></i></button>
-        </div>
-        <div class="to">
-          <p>Euro</p>
-        </div>
+        <p class="from">Peso</p>
+        <button class="change" id="invertCurrency"><i class="fas fa-exchange-alt"></i></button>
+        <p class="to">Euro</p>
       </nav>
     </div>
 
     <div class="calc">
       <form id="amount">
         <label for="amount">Monto:</label>
-        <input type="number" id="amountToChange" name="amount" placeholder="100" min="1" value="" onchange="" required>
+        <input type="number" id="amountToChange" name="amount" placeholder="100" min="1">
         <button type="submit">Calcular</button>
       </form>
-      <div id="arsToEuro">
-        <h5>Conversión de <span>Ingrese valor</span> Pesos 🇦🇷 a Euros</h5>
+
+      <div class="conversion-result">
+        <h5 id="conversionTitle"></h5>
         <p>
           COMPRA: AR$ <span>Obteniendo valor</span> <br>
           VENTA: AR$ <span>Obteniendo valor</span> <br>
@@ -49,7 +42,7 @@
           Quedarían: € *<span>Obteniendo valor</span>*
         </p>
       </div>
-      <div id="euroToars">
+      <!-- <div id="euroToars">
         <h5>Conversión de <span>Ingrese valor</span> Euros a Pesos 🇦🇷</h5>
         <p>
           COMPRA: € <span>Obteniendo valor</span> <br>
@@ -60,7 +53,7 @@
           AR$ a €±±ˆ: AR$ <span>Obteniendo valor</span> / AR$ <span>Obteniendo valor</span><br>
           Quedarían: € *<span>Obteniendo valor</span>*
         </p>
-      </div>
+      </div> -->
     </div>
 
     <div class="footer">
