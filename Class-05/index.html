@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario de contacto</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h2 class="my-3">Formulario de contacto</h2>
+
+		<form action="/" method="post" id="contactForm">
+			<div class="row">
+				<div class="col-12 col-md-6 mb-3">
+					<div class="form-group">
+						<label>Nombre:</label>
+						<input type="text" name="userName" class="form-control">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-6 mb-3">
+					<div class="form-group">
+						<label>Correo electrónico:</label>
+						<input type="email" name="userEmail" class="form-control">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-6 mb-3">
+					<div class="form-group">
+						<label>Teléfono:</label>
+						<input type="tel" name="userPhone" class="form-control">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-6 mb-3">
+					<div class="form-group">
+						<label>Asunto:</label>
+						<input type="text" name="subject" class="form-control">
+						<span></span>
+					</div>
+				</div>
+				
+				<div class="col-12 mb-3">
+					<div class="form-group">
+						<label>Mensaje:</label>
+						<textarea name="message" class="form-control"></textarea>
+						<span></span>
+					</div>
+				</div>
+
+				<div class="col-12">
+					<button type="submit" class="btn btn-success">Enviar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script src="js/app.js"></script>
+
+	<!-- <script>
+		fetch('https://euroblue.com.ar')
+			.then(response => response.text())
+			.then(data => {
+				let finalData = data.split('$');
+				console.log('Euro Blue - COMPRA', finalData[1].split(`</`).shift());
+				console.log(Number(finalData[1].split(`</`).shift()));
+				console.log('Euro Blue - VENTA', finalData[2].split(`</`).shift());
+			});
+	</script> -->
+</body>
+</html>
