@@ -3,7 +3,7 @@ let formFields = Array.from(contactForm.elements); // Convertimos a array
 formFields.pop(); // Sacamos el botón
 
 // Función que controla si el campo está vacío
-const isEmpty = (e) => {
+const isEmpty = e => {
 	let input = e.target; // Capturamos al campo
 	let inputValue = input.value; // Capturamos el valor del campo
 
@@ -11,20 +11,102 @@ const isEmpty = (e) => {
 	if (inputValue === '') {
 		// si SÍ está vacío el campo, le aplicamos una clase llama "is-invalid"
 		input.classList.add('is-invalid');
+		// Seteamos el mensaje de error
+		feedbackMsg(
+			input,
+			`Escribí tu <b>${input.dataset.name}</b>`,
+			'invalid-feedback'
+		);
 	} else {
 		// si NO está vacío, le quitamos la clase "is-invalid"
 		input.classList.remove('is-invalid');
+		// Seteamos el mensaje de exito
+		feedbackMsg(
+			input,
+			`¡<b>${input.value}</b>, está perfecto!`,
+			'valid-feedback'
+		);
 	}
+}
 
-	feedbackMsg(input, 'Campo obligatorio', 'invalid-feedback');
+const isEmail = e => {
+	let input = e.target;
+	let inputValue = input.value;
+	const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	// Si no pasa el test de ser un formato de correo electrónico
+	if(!regex.test(inputValue)) {
+		// si NO es un formato de correo electrónico
+		input.classList.add('is-invalid');
+		// Seteamos el mensaje de error
+		feedbackMsg(
+			input,
+			`<b>${inputValue}</b> no es un formato de correo válido`,
+			'invalid-feedback'
+		);
+	}
 }
 
 const feedbackMsg = (field, msg, className) => {
 	let spanTag = field.nextElementSibling; // Capturamos al hermano que está por debajo
-	spanTag.innerText = msg;
+	spanTag.innerHTML = msg;
+	if (spanTag.classList.contains('invalid-feedback')) {
+		spanTag.classList.remove('invalid-feedback');
+	}
+	if (spanTag.classList.contains('valid-feedback')) {
+		spanTag.classList.remove('valid-feedback');
+	}
 	spanTag.classList.add(className);
 }
 
 formFields.forEach(field => {
 	field.addEventListener('blur', isEmpty);
+
+	// Al campo de email, le asignamos lo siguiente
+	if (field.name === 'userEmail' && field.value !== '') {
+		console.log('Entró');
+		field.addEventListener('blur', isEmail);
+	}
+});
+
+
+// Custom select
+const selectCustom = document.querySelector('.select-custom');
+const selectTag = selectCustom.querySelector('select');
+const selectCustomValue = selectCustom.querySelector('.select-custom-value');
+
+selectTag.addEventListener('change', e => {
+	let selectValue = e.target.value;
+	selectCustomValue.innerText = selectValue;
+});
+
+// Radio buttons
+const radioButtons = [...document.querySelectorAll('input[name=conditions]')];
+
+radioButtons.forEach(radioButton => {
+	radioButton.addEventListener('change', e => {
+		let aceptConditions = e.target.value;
+		if (aceptConditions === 'true') {
+			console.log('Aceptó');
+		} else {
+			console.log('No aceptó');
+		}
+	})
+})
+
+
+// Checkboxes
+const checkBoxes = [...document.querySelectorAll('input[name=gender]')];
+let genderValues = [];
+
+checkBoxes.forEach(checkBox => {
+	checkBox.addEventListener('change', e => {
+		let checkboxValue = e.target.value;
+		if (checkBox.checked && !genderValues.includes(checkboxValue)) {
+			genderValues.push(checkboxValue);
+		} else {
+			// Hacer un filter, para eliminar el valor agregado
+			genderValues = genderValues.filter(gender => gender != checkboxValue);
+		}
+		console.log(genderValues);
+	})
 })
