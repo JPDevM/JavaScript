@@ -32,14 +32,7 @@
 
       <div class="conversion-result">
         <h5 id="conversionTitle"></h5>
-        <p>
-          COMPRA: AR$ <span>Obteniendo valor</span> <br>
-          VENTA: AR$ <span>Obteniendo valor</span> <br>
-          FUENTE: www.euroblue.com.ar a las <span>Obteniendo valor</span><br>
-          <br>
-          Medio: AR$ <span>Obteniendo valor</span><br>
-          € a AR$: AR$ <span>Obteniendo valor</span> / AR$ <span>Obteniendo valor</span><br>
-          Quedarían: € *<span>Obteniendo valor</span>*
+        <p id="conversionResult">
         </p>
       </div>
 
@@ -47,7 +40,7 @@
 
     <div class="footer">
       <nav class="actionButtons">
-        <button id="copyBtn"><i class="far fa-copy"></i></button>
+        <button id="copyBtn" onClick="copyTextToClipboard()"><i class="far fa-copy"></i></button>
         <button id="shareBtn"><i class="fas fa-share-alt"></i></button>
         <button id="syncBtn"><i class="fas fa-sync-alt"></i></button>
         </ul>
