@@ -45,7 +45,7 @@ const setAmount = (e) => {
 amountToChange.addEventListener('input', setAmount);
 
 // - - - -
-// Set Date: HH:MMhs. del DD-MM-YYYY
+// Set Date: hh:mm hs. del DD-MM-YYYY
 let date = new Date();
 date =
   date.getHours() +
