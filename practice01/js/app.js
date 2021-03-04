@@ -66,9 +66,10 @@ let prom = fetch('https://euroblue.com.ar')
     conversionResult(euroBlueCompra, euroBlueVenta, euroBluePromedio);
     return euroBluePromedio;
   });
-prom().then((value1) => {
-  console.log(value1);
-});
+
+// prom().then((value1) => {
+//   console.log(value1);
+// });
 // - - - - - - - - - - - - -
 // Put Final result
 
