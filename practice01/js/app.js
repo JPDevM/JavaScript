@@ -47,24 +47,15 @@ amountToChange.addEventListener('input', setAmount);
 // - - - -
 // Set Date: hh:mm hs. del DD-MM-YYYY
 let date = new Date();
-// date =
-//   date.getHours() +
-//   ':' +
-//   date.getMinutes() +
-//   'hs. del ' +
-//   date.getDate() +
-//   '-' +
-//   (date.getMonth() + 1) +
-//   '-' +
-//   date.getFullYear();
-let days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
-date = `${date.getHours()}:${date.getMinutes()}hs del ${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+date = `${date.getHours()}:${date.getMinutes()}hs del ${date.getDate()}-${
+  date.getMonth() + 1
+}-${date.getFullYear()}`;
 
 // - - - - - - - - - - - - -
 // Get and Set euro value.
 
-fetch('https://euroblue.com.ar')
+let prom = fetch('https://euroblue.com.ar')
   .then((response) => response.text())
   .then((data) => {
     let finalData = data.split('$');
@@ -73,39 +64,23 @@ fetch('https://euroblue.com.ar')
     let euroBluePromedio = (euroBlueCompra + euroBlueVenta) / 2;
 
     conversionResult(euroBlueCompra, euroBlueVenta, euroBluePromedio);
-    euroValue(euroBlueCompra, euroBlueVenta, euroBluePromedio);
+    return euroBluePromedio;
   });
-
+prom().then((value1) => {
+  console.log(value1);
+});
 // - - - - - - - - - - - - -
-// Put euro value.
-const euroValue = (compra, venta, promedio) => {
-  document.querySelector('#ebCompra').innerHTML = compra ? compra : '0,00';
-  document.querySelector('#ebVenta').innerHTML = venta ? venta : '0,00';
-  document.querySelector('#ebMedio').innerHTML = promedio ? promedio : '0,00';
-  document.querySelector('#ebMedio2').innerHTML = promedio ? promedio : '0,00';
-};
-
 // Put Final result
 
 // Put Result
 const conversionResult = (compra, venta, promedio) => {
-  console.log(compra, venta, promedio);
-  let conversionResult =
-    '<p>' +
-    'COMPRA: AR$ <span id="ebCompra"> Obteniendo valor.</span> <br>' +
-    'VENTA: AR$ <span id="ebVenta"> Obteniendo valor.</span> <br>' +
-    'FUENTE: www.euroblue.com.ar a las ' +
-    date +
-    '<br><br>' +
-    'Medio: AR$ <span id="ebMedio"> Obteniendo valor.</span> <br>' +
-    '€ a AR$: AR$ <span id="ebAmount">...</span>' +
-    ' / AR$ <span id="ebMedio2">...</span> <br>' +
-    'Quedarían: € * <span id="ebFinal"> calculando...</span>*' +
-    '</p>';
-  
+  console.log(compra, venta, promedio); // 174 176 175
+  let conversionResult = `<p>COMPRA: AR$ ${compra}<br>VENTA: AR$ ${venta}<br>FUENTE: www.euroblue.com.ar a las ${date}<br><br>Medio: AR$ ${promedio}<br>Quedarían: € *<span id="ebFinal"> calculando...</span>*</p>`;
+  console.log;
   document.getElementById('conversionResult').innerHTML = conversionResult;
-}
+};
 
+// - - - - - - - - - - - - -
 // Copy btn
 function copyTextToClipboard() {
   let conversionResult = document.getElementById('conversionResult');
@@ -123,7 +98,7 @@ function copyTextToClipboard() {
   // /* Alert the copied text */
   alert('Copied the text: ' + fakeInput.value);
 
-  setTimeout( () => {
+  setTimeout(() => {
     conversionResult.removeChild(fakeInput);
-  }, 3000)
+  }, 3000);
 }
