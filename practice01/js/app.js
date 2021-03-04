@@ -38,7 +38,8 @@ const setAmount = (e) => {
   amountTagTitle.innerText = amount ? amount : '0.00';
 
   // Set result
-  document.querySelector('#ebFinal').innerText = finalValue > 0 ? finalValue.toFixed(2) : '0,00';
+  document.querySelector('#ebFinal').innerText =
+    finalValue > 0 ? finalValue.toFixed(2) : '0,00';
 };
 amountToChange.addEventListener('input', setAmount);
 
@@ -67,12 +68,6 @@ let prom = fetch('https://euroblue.com.ar')
     amountToChange.setAttribute('data-middle', euroBluePromedio);
   });
 
-<<<<<<< HEAD
-// prom().then((value1) => {
-//   console.log(value1);
-// });
-=======
->>>>>>> 75d349cc1916b69d7ba56032f672fdd2e6c706b0
 // - - - - - - - - - - - - -
 // Put Final result
 
