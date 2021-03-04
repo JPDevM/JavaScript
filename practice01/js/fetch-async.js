@@ -1,14 +1,16 @@
 // Async - Await
-const getUsers = async () => {
-	let response = await fetch('https://jsonplaceholder.typicode.com/todos/');
-	let data = await response.json();
-	return data;
+const getPrices = async () => {
+	let apiCall = await fetch('https://euroblue.com.ar').then((response) => response.text());
+	return apiCall;
 }
 
-// getUsers().then(users => console.log(users));
 
-// Ejemplo para trabajar la data fuera del async-await
-getUsers()
-	.then(users => {
-		console.log(users);
-	})
+getPrices()
+	.then(data => {
+		let finalData = data.split('$');
+		let euroBlueCompra = Number(finalData[1].split(`</`).shift());
+		let euroBlueVenta = Number(finalData[2].split(`</`).shift());
+		let euroBluePromedio = (euroBlueCompra + euroBlueVenta) / 2;
+
+		console.log(euroBlueCompra, euroBlueVenta, euroBluePromedio);
+	});

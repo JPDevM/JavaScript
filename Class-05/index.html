@@ -10,54 +10,11 @@
 </head>
 <body>
 	
-
 	<div class="container">
-		<div class="select-custom">
-			<p class="select-custom-value">Elegí tu país</p>
-			<select name="country">
-				<option value="Argentina">Argentina</option>
-				<option value="Brasil">Brasil</option>
-				<option value="Colombia">Colombia</option>
-			</select>
-		</div>
 		
 		<h2 class="my-3">Formulario de contacto</h2>
 
 		<form action="/" method="post" id="contactForm">
-			<div class="row">
-				<div class="col-12 col-md-6 mb-3">
-					<p>Acepta términos y condiciones</p>
-					<div class="form-check form-check-inline">
-						<input type="radio" name="conditions" class="form-check-input" id="yes" value="true">
-						<label class="form-check-label" for="yes">Acepto</label>
-					</div>
-
-					<div class="form-check form-check-inline">
-						<input type="radio" name="conditions" class="form-check-input" id="dont" value="false">
-						<label class="form-check-label" for="dont">No acepto</label>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-12 col-md-6 mb-3">
-					<p>Género:</p>
-					<div class="form-check form-check-inline">
-						<input type="checkbox" name="gender" class="form-check-input" id="H" value="H">
-						<label class="form-check-label" for="H">Hombre</label>
-					</div>
-
-					<div class="form-check form-check-inline">
-						<input type="checkbox" name="gender" class="form-check-input" id="M" value="M">
-						<label class="form-check-label" for="M">Mujer</label>
-					</div>
-					
-					<div class="form-check form-check-inline">
-						<input type="checkbox" name="gender" class="form-check-input" id="Other" value="Other">
-						<label class="form-check-label" for="Other">Otro</label>
-					</div>
-				</div>
-			</div>
 
 			<div class="row">
 				<div class="col-12 col-md-6 mb-3">
@@ -110,6 +67,41 @@
 						<label>Mensaje:</label>
 						<textarea name="message" class="form-control" data-name="mensaje"></textarea>
 						<span style="display: inline-block; height: 20px;"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-md-6 mb-3">
+						<p>Acepta términos y condiciones</p>
+						<div class="form-check form-check-inline">
+							<input type="radio" name="conditions" class="form-check-input" id="yes" value="true">
+							<label class="form-check-label" for="yes">Acepto</label>
+						</div>
+				
+						<div class="form-check form-check-inline">
+							<input type="radio" name="conditions" class="form-check-input" id="dont" value="false">
+							<label class="form-check-label" for="dont">No acepto</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-12 col-md-6 mb-3">
+						<p>Género:</p>
+						<div class="form-check form-check-inline">
+							<input type="checkbox" name="gender" class="form-check-input" id="H" value="H">
+							<label class="form-check-label" for="H">Hombre</label>
+						</div>
+				
+						<div class="form-check form-check-inline">
+							<input type="checkbox" name="gender" class="form-check-input" id="M" value="M">
+							<label class="form-check-label" for="M">Mujer</label>
+						</div>
+				
+						<div class="form-check form-check-inline">
+							<input type="checkbox" name="gender" class="form-check-input" id="Other" value="Other">
+							<label class="form-check-label" for="Other">Otro</label>
+						</div>
 					</div>
 				</div>
 

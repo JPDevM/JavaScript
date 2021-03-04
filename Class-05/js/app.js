@@ -59,24 +59,14 @@ const feedbackMsg = (field, msg, className) => {
 }
 
 formFields.forEach(field => {
-	field.addEventListener('blur', isEmpty);
-
-	// Al campo de email, le asignamos lo siguiente
-	if (field.name === 'userEmail' && field.value !== '') {
-		console.log('Entró');
-		field.addEventListener('blur', isEmail);
+	if ( field.type != 'radio' && field.type != 'checkbox' ) {
+		field.addEventListener('blur', isEmpty);
+	
+		// Al campo de email, le asignamos lo siguiente
+		if (field.name === 'userEmail' && field.value !== '') {
+			field.addEventListener('blur', isEmail);
+		}
 	}
-});
-
-
-// Custom select
-const selectCustom = document.querySelector('.select-custom');
-const selectTag = selectCustom.querySelector('select');
-const selectCustomValue = selectCustom.querySelector('.select-custom-value');
-
-selectTag.addEventListener('change', e => {
-	let selectValue = e.target.value;
-	selectCustomValue.innerText = selectValue;
 });
 
 // Radio buttons
@@ -93,7 +83,6 @@ radioButtons.forEach(radioButton => {
 	})
 })
 
-
 // Checkboxes
 const checkBoxes = [...document.querySelectorAll('input[name=gender]')];
 let genderValues = [];
@@ -109,4 +98,27 @@ checkBoxes.forEach(checkBox => {
 		}
 		console.log(genderValues);
 	})
+})
+
+// Submit del formulario
+contactForm.addEventListener('submit', e => {
+	// Evitar que se envíe el formulario porque se refresca la página
+	e.preventDefault();
+
+	let infoForm = {};
+
+	formFields.forEach(field => {
+		infoForm[field.name] = field.value;
+	});
+
+	// Enviar la data al backend / server
+	fetch('http://localhost:3000/contact', { 
+		method: 'POST',
+		body: JSON.stringify(infoForm), 
+		headers: {
+			'Content-Type': 'application/json',
+		}
+	})
+		.then(response => response.json())
+		.then(data => console.log(data))
 })
