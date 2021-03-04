@@ -29,18 +29,16 @@ btnChangeCurrency.addEventListener('click', changeCurrency);
 const amountToChange = document.querySelector('#amountToChange');
 const setAmount = (e) => {
   let input = e.target;
-  let amount = input.value;
+  let amount = Number(input.value);
+  let middleValue = Number(input.dataset.middle);
+  let finalValue = amount / middleValue;
 
   // Title value
   let amountTagTitle = conversionTitle.querySelector('span');
   amountTagTitle.innerText = amount ? amount : '0.00';
 
-  // Result value
-  let amountTagResult = conversionTitle.querySelector('span');
-  amountTagResult.innerText = amount ? amount : '0.00';
-
   // Set result
-  document.querySelector('#ebAmount').innerHTML = amount ? amount : '0,00';
+  document.querySelector('#ebFinal').innerText = finalValue > 0 ? finalValue.toFixed(2) : '0,00';
 };
 amountToChange.addEventListener('input', setAmount);
 
@@ -64,20 +62,22 @@ let prom = fetch('https://euroblue.com.ar')
     let euroBluePromedio = (euroBlueCompra + euroBlueVenta) / 2;
 
     conversionResult(euroBlueCompra, euroBlueVenta, euroBluePromedio);
-    return euroBluePromedio;
+
+    amountToChange.removeAttribute('disabled');
+    amountToChange.setAttribute('data-middle', euroBluePromedio);
   });
-prom().then((value1) => {
-  console.log(value1);
-});
+
 // - - - - - - - - - - - - -
 // Put Final result
 
 // Put Result
 const conversionResult = (compra, venta, promedio) => {
-  console.log(compra, venta, promedio); // 174 176 175
-  let conversionResult = `<p>COMPRA: AR$ ${compra}<br>VENTA: AR$ ${venta}<br>FUENTE: www.euroblue.com.ar a las ${date}<br><br>Medio: AR$ ${promedio}<br>Quedarían: € *<span id="ebFinal"> calculando...</span>*</p>`;
-  console.log;
-  document.getElementById('conversionResult').innerHTML = conversionResult;
+  // console.log(compra, venta, promedio); // 174 176 175
+  let conversionResultText = `<p>COMPRA: AR$ ${compra}<br>VENTA: AR$ ${venta}<br>FUENTE: www.euroblue.com.ar a las ${date}<br><br>Medio: AR$ ${promedio}<br>Quedarían: € *<span id="ebFinal"> calculando...</span>*</p>`;
+
+  document.getElementById('conversionResult').innerHTML = conversionResultText;
+
+  return [compra, venta, promedio];
 };
 
 // - - - - - - - - - - - - -
