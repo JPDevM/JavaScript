@@ -19,12 +19,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-}
-
-.container > .currency {
-}
-
 .header {
   display: flex;
   flex-wrap: wrap;
@@ -58,8 +52,6 @@ a {
   border-radius: 50%;
   background-color: lightgrey;
 }
-.container > .calc {
-}
 
 .calc span {
   color: hotpink;
@@ -90,9 +82,6 @@ button[type='submit'] {
   font-size: 1em;
   flex-grow: 1;
   align-self: stretch;
-}
-
-.footer {
 }
 
 .footer > .actionButtons {
