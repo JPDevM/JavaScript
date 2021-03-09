@@ -1,0 +1,69 @@
+form > .row > label:first-of-type {
+  width: 35%;
+  display: inline-block;
+}
+
+form > .row > input,
+form > .row > select {
+  width: 55%;
+  display: inline-block;
+}
+
+form > .row > input[type='checkbox'],
+form > .row > input[type='radio'] {
+  width: auto;
+}
+
+form > .containerBtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+/* form .selectNumber {
+  display: flex;
+  flex-wrap: nowrap;
+} */
+
+form #testSelect {
+  max-width: 50px;
+}
+form #idTestTel {
+  max-width: 37%;
+  /* align-self: flex-end; */
+  margin-left: 3%;
+}
+
+.passCheck {
+  opacity: 0;
+  position: absolute;
+  width: 50%;
+  left: 40%;
+  background-color: orchid;
+}
+
+form > .row > input[type='reset'],
+form > .row > input[type='button'],
+form > .row > input[type='submit'] {
+  width: auto;
+}
+
+.feedback::before {
+  color: lightgray;
+  content: 'Feedback';
+  width: 100%;
+  text-align: end;
+}
+
+.valid::before {
+  color: red !important;
+}
+
+.invalid::before {
+  color: green !important;
+}
+
+.notsafe::before {
+  color: orange !important;
+}

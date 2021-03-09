@@ -28,19 +28,8 @@ header > h1 {
   text-align: center;
 }
 
-form > label {
-  width: 35%;
-  display: inline-block;
+.row {
+  display: flex;
+  flex-wrap: wrap;
   margin: 15px 0 0 3%;
-}
-
-form > input,
-form > select {
-  width: 55%;
-  display: inline-block;
-}
-
-form > input[type='checkbox'],
-form > input[type='radio'] {
-  width: 17%;
 }

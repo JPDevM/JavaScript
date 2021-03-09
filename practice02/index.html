@@ -20,77 +20,182 @@
       <form action="#" method="post">
 
         <!-- text -->
-        <label for="testName">Name:</label>
-        <input type="text" name="testName" id="idTestName">
-        <br>
+        <div class="row">
+          <label for="testName">Name:</label>
+          <input type="text" name="testName" id="idTestName" placeholder="Eg. John Cena">
+          <div class="feedback"></div>
+        </div>
 
         <!-- tel -->
-        <label for="testTel">Tel:</label>
-        <input type="tel" name="testTel" id="idTestTel">
-        <br>
+        <div class="row selectNumber">
+          <!-- search -->
+          <label for="testSelect">Tel:</label>
+          <select id="testSelect" name="testSelect">
+            <option data-countryCode="AR" value="54">Arg.</option>
+            <option data-countryCode="BR" value="55">Bra.</option>
+            <option data-countryCode="ES" value="34" selected>Esp.</option>
+            <option data-countryCode="US" value="1">USA</option>
+          </select>
+          <!-- https://gist.github.com/andyj/7108917 -->
+          <input type="tel" name="testTel" id="idTestTel" placeholder="(0-9)">
+          <div class="feedback valid"></div>
+        </div>
+
 
         <!-- email -->
-        <label for="testEmail">Email:</label>
-        <input type="email" name="testEmail" id="idTestEmail">
-        <br>
+        <div class="row">
+          <label for="testEmail">Email:</label>
+          <input type="email" name="testEmail" id="idTestEmail" placeholder="Eg. johncena@gmail.com">
+          <div class="feedback invalid"></div>
+        </div>
+
 
         <!-- password -->
-        <label for="testPassword">Pass:</label>
-        <input type="password" name="testPassword" id="idTestPassword">
-        <br>
+        <div class="row">
+          <label for="testPassword">Pass:</label>
+          <input type="password" name="testPassword" id="idTestPassword"> placeholder
+          <div class="feedback passCheck">
+            <ul id=passCheckList>
+              <li class="passChechCharacters">
+                <i class="far fa-check-circle"></i><i class="far fa-meh-blank"></i>8characters
+              </li>
+              <li class="passChechNumbers">
+                <i class="far fa-check-circle"></i><i class="far fa-meh-blank"></i>Has numbers
+              </li>
+              <li class="passChechSpecial">
+                <i class="far fa-check-circle"></i><i class="far fa-meh-blank"></i>Has Special charater
+              </li>
+              <li class="passChechUppercase">
+                <i class="far fa-check-circle"></i><i class="far fa-meh-blank"></i>Has Uppercase
+              </li>
+              <li class="passChechlowercase">
+                <i class="far fa-check-circle"></i><i class="far fa-meh-blank"></i>Has Lowercase
+              </li>
+            </ul>
+          </div>
+        </div>
+
 
         <!-- number -->
-        <label for="testNumber">Lucky number:</label>
-        <input type="number" name="testNumber" id="idTestNumber">
-        <br>
+        <div class="row">
+          <label for="testNumber">Lucky number:</label>
+          <input type="number" name="testNumber" id="idTestNumber">
+          <div class="feedback"></div>
+        </div>
+
 
         <!-- url -->
-        <label for="testURL">URL:</label>
-        <input type="url" name="testURL" id="isTestURL">
-        <br>
+        <div class="row">
+          <label for="testURL">URL:</label>
+          <input type="url" name="testURL" id="isTestURL">
+          <div class="feedback"></div>
+        </div>
+
 
         <!-- checkbox -->
-        <label for="testCheckbox">Chose:</label>
-        <input type="checkbox" name="testCheckbox" id="idTestCheckbox1">
-        <input type="checkbox" name="testCheckbox" id="idTestCheckbox2">
-        <input type="checkbox" name="testCheckbox" id="idTestCheckbox3">
-        <br>
+        <div class="row">
+          <label for="testCheckbox">Chose:</label>
+          <input type="checkbox" name="testCheckbox" id="idTestCheckbox1">
+          <label for="idTestCheckbox1">Cbx 1</label>
+          <input type="checkbox" name="testCheckbox" id="idTestCheckbox2">
+          <label for="idTestCheckbox1">Cbx 2</label>
+          <input type="checkbox" name="testCheckbox" id="idTestCheckbox3">
+          <label for="idTestCheckbox1">Cbx 3</label>
+          <div class="feedback"></div>
+        </div>
+
 
         <!-- radio -->
-        <label for="testRadio">Chose one:</label>
-        <input type="radio" name="testRadio" id="idTestRadio1">
-        <input type="radio" name="testRadio" id="idTestRadio2">
-        <input type="radio" name="testRadio" id="idTestRadio3">
-        <br>
+        <div class="row">
+          <label for="testRadio">Chose one:</label>
+          <input type="radio" name="testRadio" id="idTestRadio1">
+          <label for="idTestCheckbox1">Rd 1</label>
+          <input type="radio" name="testRadio" id="idTestRadio2">
+          <label for="idTestCheckbox1">Rd 2</label>
+          <input type="radio" name="testRadio" id="idTestRadio3">
+          <label for="idTestCheckbox1">Rdx 3</label>
+          <div class="feedback"></div>
+        </div>
 
-        <!-- search -->
-        <label for="cars">Choose:</label>
-        <select id="cars" name="cars">
-          <option value="choose" selected>Choose one:</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="fiat">Fiat</option>
-          <option value="audi">Audi</option>
-        </select>
-
-        <br>
 
         <!-- color -->
+        <div class="row">
+          <label for="testColor">What color:</label>
+          <input type="color" name="testColor" id="idTestColor">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- date -->
+        <div class="row">
+          <label for="testDate">Normal date:</label>
+          <input type="date" name="testDate" id="idTestDate">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- datetime-local -->
+        <div class="row">
+          <label for="testDateTime-local">Local date:</label>
+          <input type="datetime-local" name="testDateTime-local" id="idTestDateTime-local">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- file -->
+        <div class="row">
+          <label for="testFile">Upload your profile picture:</label>
+          <input type="file" name="testFile" id="idTestFile">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- hidden -->
-        <!-- image -->
+        <input type="hidden" name="testHidden" id=idTestHidden value="valueTestHidden">
+
+
         <!-- month -->
+        <div class="row">
+          <label for="testRow">row??</label>
+          <input type="month" name="testRow" id="idTestRow">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- range -->
-        <!-- reset -->
-        <!-- button -->
-        <!-- submit -->
+        <div class="row">
+          <label for="testRange">Range 0 to 100:</label>
+          <input type="range" name="testRow" id="idTestRow" min="0" max="10">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- time -->
+        <div class="row">
+          <label for="testTime">Time: </label>
+          <input type="time" name="testTime" id="idTestTime">
+          <div class="feedback"></div>
+        </div>
+
+
         <!-- week -->
+        <div class="row">
+          <div class="feedback"></div>
+        </div>
+
+
+        <!-- reset button submit-->
+        <div class="row containerBtns">
+          <input type="reset" value="ResetTxt">
+          <input type="button" value="ButtonTxt">
+          <input type="submit" value="ValueTxt">
+          <div class="feedback"></div>
+        </div>
+
       </form>
     </div>
     <footer></footer>
+    <script src="js/validateForm.js"></script>
   </div>
 </body>
 
