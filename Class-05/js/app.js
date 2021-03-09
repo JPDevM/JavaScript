@@ -111,6 +111,10 @@ contactForm.addEventListener('submit', e => {
 		infoForm[field.name] = field.value;
 	});
 
+	// Información extra que no depende del formulario
+	infoForm.userAgent = 'Mozilla Firefox';
+	infoForm.msgDate = new Date;
+
 	// Enviar la data al backend / server
 	fetch('http://localhost:3000/contact', { 
 		method: 'POST',

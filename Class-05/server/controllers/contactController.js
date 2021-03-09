@@ -12,6 +12,9 @@ module.exports = {
 		/* 
 			- Recibir mensaje de exito en el frontend y mostrarlo
 			- Reset del form
+			- Mensaje devolución del form. de parte del server.
+			- Middleware de 2da validación del formulario. 				
+				• Validar las mismas cosas aquí que en el frontend.
 		*/
 	}
 }
