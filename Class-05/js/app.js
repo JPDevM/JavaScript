@@ -111,6 +111,10 @@ contactForm.addEventListener('submit', e => {
 		infoForm[field.name] = field.value;
 	});
 
+	// Información extra que no depende del formulario
+	infoForm.userAgent = 'Mozilla Firefox';
+	infoForm.msgDate = new Date;
+
 	// Enviar la data al backend / server
 	fetch('http://localhost:3000/contact', { 
 		method: 'POST',
@@ -120,5 +124,40 @@ contactForm.addEventListener('submit', e => {
 		}
 	})
 		.then(response => response.json())
-		.then(data => console.log(data))
+		.then(data => {
+			let successMsg = document.querySelector('#successMsg');
+
+			if (data.status === 200) {
+				// contactForm.reset(); // Limpiar el formulario
+				contactForm.remove(); // Eliminamos el formulario
+				successMsg.classList.remove('d-none');
+				successMsg.classList.add('alert-success');
+				successMsg.innerText = `Hola ${data.userInfo.name}, tu mensaje fue recibido. Pronto te responderemos a: ${data.userInfo.email}`;
+			}
+
+			if (data.status === 400) {
+				successMsg.classList.remove('d-none');
+				successMsg.classList.add('alert-danger');
+				successMsg.innerText = `El formulario no se ha podido enviar correctamente`;
+			}
+		})
 })
+
+
+// Validando el campo attachment
+let attachmentInput = document.querySelector('[name=attachment]');
+attachmentInput.addEventListener('change', e => {
+	let inputValue = e.target.value;
+	let file = e.target.files[0];
+	let extension = file.type.split('/').pop();
+	if ( !['png', 'jpg', 'gif'].includes(extension) ) {
+		console.log('extension NO aceptada');
+	}
+})
+
+// Leer acerca de:
+/*
+	1. atributo enctype del formulario
+	2. el objeto FormData de JS
+	3. los headers y el Content-Type
+*/
