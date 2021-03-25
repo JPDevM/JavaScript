@@ -8,5 +8,8 @@
 
 #### To-do-list.
 
-- [ ] Mobile first.
+- [ ] Mobile first. IOS Devices
+- [ ]
 - [ ] Create the HTML.
+- [ ] Mensaje devolución del form. de parte del server.
+- [ ] Middleware de 2da validación del formulario. Validar las mismas cosas aquí que en el frontend.

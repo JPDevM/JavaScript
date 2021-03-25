@@ -13,3 +13,4 @@ Tarea:
 - [ ] Armar el mejor archivo .md que esplique como hacerlo. (usar el video de la clase grabado). Traducirlo dsp al ingles.
 - [ ] Speed run formularios.
 - [ ] Valide desde el frontend + UX + UI.
+  
