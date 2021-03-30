@@ -1,3 +1,4 @@
+// Capturamos el formulario
 let contactForm = document.querySelector('#contactForm');
 let formFields = Array.from(contactForm.elements); // Convertimos a array
 formFields.pop(); // Sacamos el botón
@@ -5,7 +6,7 @@ formFields.pop(); // Sacamos el botón
 // Función que controla si el campo está vacío
 const isEmpty = e => {
 	let input = e.target; // Capturamos al campo
-	let inputValue = input.value; // Capturamos el valor del campo
+	let inputValue = input.value.trim(); // Capturamos el valor del campo y le quitamos los espacios vacíos del principio y final si los hubiera
 
 	// Si el campo está vacío
 	if (inputValue === '') {
@@ -29,13 +30,20 @@ const isEmpty = e => {
 	}
 }
 
+// Arreglar este caso para ajustar el mensaje de error
 const isEmail = e => {
 	let input = e.target;
-	let inputValue = input.value;
-	const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	let inputValue = input.value.trim();
+	
+	// https://www.youtube.com/watch?v=rhzKDrUiJVk
+	// const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+	
 	// Si no pasa el test de ser un formato de correo electrónico
 	if(!regex.test(inputValue)) {
+		console.log('el email no cumple con el formato');
 		// si NO es un formato de correo electrónico
+		input.classList.remove('is-valid');
 		input.classList.add('is-invalid');
 		// Seteamos el mensaje de error
 		feedbackMsg(
@@ -51,8 +59,7 @@ const feedbackMsg = (field, msg, className) => {
 	spanTag.innerHTML = msg;
 	if (spanTag.classList.contains('invalid-feedback')) {
 		spanTag.classList.remove('invalid-feedback');
-	}
-	if (spanTag.classList.contains('valid-feedback')) {
+	} else {
 		spanTag.classList.remove('valid-feedback');
 	}
 	spanTag.classList.add(className);
@@ -63,8 +70,8 @@ formFields.forEach(field => {
 		field.addEventListener('blur', isEmpty);
 	
 		// Al campo de email, le asignamos lo siguiente
-		if (field.name === 'userEmail' && field.value !== '') {
-			field.addEventListener('blur', isEmail);
+		if (field.name === 'userEmail') {
+			field.addEventListener('change', isEmail);
 		}
 	}
 });
@@ -102,26 +109,31 @@ checkBoxes.forEach(checkBox => {
 
 // Submit del formulario
 contactForm.addEventListener('submit', e => {
-	// Evitar que se envíe el formulario porque se refresca la página
-	e.preventDefault();
+	let finalData = new FormData;
 
 	let infoForm = {};
+	let attachment = null;
 
 	formFields.forEach(field => {
 		infoForm[field.name] = field.value;
+		if (field.type === 'file') {
+			attachment = field.files[0];
+		}
 	});
 
 	// Información extra que no depende del formulario
 	infoForm.userAgent = 'Mozilla Firefox';
 	infoForm.msgDate = new Date;
 
+	// Armando la finalData
+	finalData.append('formInfo', JSON.stringify(infoForm));
+	finalData.append('attachment', attachment);
+
 	// Enviar la data al backend / server
 	fetch('http://localhost:3000/contact', { 
 		method: 'POST',
-		body: JSON.stringify(infoForm), 
-		headers: {
-			'Content-Type': 'application/json',
-		}
+		body: finalData,
+		// Los headers por default serán los de multipart/form-data
 	})
 		.then(response => response.json())
 		.then(data => {
@@ -131,8 +143,9 @@ contactForm.addEventListener('submit', e => {
 				// contactForm.reset(); // Limpiar el formulario
 				contactForm.remove(); // Eliminamos el formulario
 				successMsg.classList.remove('d-none');
+				successMsg.classList.remove('alert-danger');
 				successMsg.classList.add('alert-success');
-				successMsg.innerText = `Hola ${data.userInfo.name}, tu mensaje fue recibido. Pronto te responderemos a: ${data.userInfo.email}`;
+				successMsg.innerText = `Hola ${data.userInfo.name}, tu mensaje fue recibido. Pronto te responderemos a: ${data.userInfo.email}. Tu imagen se llamó ${data.userInfo.img}`;
 			}
 
 			if (data.status === 400) {
@@ -141,23 +154,23 @@ contactForm.addEventListener('submit', e => {
 				successMsg.innerText = `El formulario no se ha podido enviar correctamente`;
 			}
 		})
+
+	// Evitar que se envíe el formulario porque se refresca la página
+	e.preventDefault();
 })
 
 
 // Validando el campo attachment
 let attachmentInput = document.querySelector('[name=attachment]');
 attachmentInput.addEventListener('change', e => {
-	let inputValue = e.target.value;
 	let file = e.target.files[0];
+	let fileSize = Math.ceil(file.size / 1024);
+	if (fileSize > 1024) {
+		console.log(fileSize);
+		console.log('El archivo es muy pesado');
+	}
 	let extension = file.type.split('/').pop();
-	if ( !['png', 'jpg', 'gif'].includes(extension) ) {
+	if ( !['png', 'jpg', 'jpeg', 'gif'].includes(extension) ) {
 		console.log('extension NO aceptada');
 	}
 })
-
-// Leer acerca de:
-/*
-	1. atributo enctype del formulario
-	2. el objeto FormData de JS
-	3. los headers y el Content-Type
-*/

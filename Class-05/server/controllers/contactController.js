@@ -1,14 +1,15 @@
 module.exports = {
 	processContact: (req, res) => {
-		console.log(req.body);
+		let data = JSON.parse(req.body.formInfo);
 
-		if (req.body.userName) {
+		if (data.userName) {
 			return res.json({
 				status: 200,
 				msg: 'information processed',
 				userInfo: {
-					name: req.body.userName,
-					email: req.body.userEmail
+					name: data.userName,
+					email: data.userEmail,
+					img: req.file.filename
 				}
 			})	
 		}
