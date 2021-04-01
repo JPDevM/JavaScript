@@ -47,9 +47,7 @@ amountToChange.addEventListener('input', setAmount);
 // Set Date: hh:mm hs. del DD-MM-YYYY
 let date = new Date();
 
-date = `${date.getHours()}:${date.getMinutes()}hs del ${date.getDate()}-${
-  date.getMonth() + 1
-}-${date.getFullYear()}`;
+date = `${date.getHours()}:${date.getMinutes()}hs del ${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 
 // - - - - - - - - - - - - -
 // Get and Set euro value.
