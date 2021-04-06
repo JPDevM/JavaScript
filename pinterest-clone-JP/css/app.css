@@ -96,6 +96,8 @@ body {
   font-size: 1.3em;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .dropdown:hover > .second-level-nav {
@@ -107,6 +109,12 @@ body {
   background-color: lightgray;
   border-radius: 20px;
   margin-bottom: 5px;
+  border: 3px solid lightgray;
+}
+
+.dropdown > .second-level-nav li:hover,
+.dropdown > .second-level-nav .active-input {
+  border: 3px solid var(--colorBlue);
 }
 
 .dropdown input[name='picUrlDropdown'],
@@ -168,22 +176,17 @@ body {
 
 /* Grid */
 .grid {
-  /* display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; */
+  /* border: 1px solid #f00; */
+  /* background-color: var(--colorBlue); */
 }
 
 .grid-item {
-  background-color: var(--colorBlue);
-  float: left;
-  width: 46vw;
-  height: auto;
+  width: calc(50% - 3px);
   border-radius: 20px;
-  margin-bottom: 3vw;
+  overflow: hidden;
+  margin-bottom: 6px;
 }
 
-img {
-  border-radius: 20px;
-  max-width: 46vw;
-  min-width: 46vw;
+.grid-item img {
+  width: 100%;
 }

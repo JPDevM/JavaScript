@@ -35,8 +35,7 @@
 					<ul class="second-level-nav">
 						<form>
 							<li><input type="url" name="picUrlDropdown" id="idPicUrlDropdown" placeholder="pic url..."></li>
-							<li><input type="url" name="picDescriptionDropdown" id="idPicDescriptionDropdown"
-									placeholder="pic description..."></li>
+							<li><input type="url" name="picDescriptionDropdown" id="idPicDescriptionDropdown" placeholder="pic description..."></li>
 							<button type="submit"><i class="fas fa-upload"></i> Upload</button>
 						</form>
 					</ul>
@@ -62,6 +61,8 @@
 		</div>
 	</div>
 
+	<script src="js/app.js"></script>
+
 	<!-- Grid JS-->
 	<script src="js/masonry.pkgd.js"></script>
 	<script>
@@ -69,13 +70,7 @@
 		var msnry = new Masonry(elem, {
 			// options
 			itemSelector: '.grid-item',
-			columnWidth: 48vw
-		});
-
-		// element argument can be a selector string
-		//   for an individual element
-		var msnry = new Masonry('.grid', {
-			// options
+			gutter: 6
 		});
 	</script>
 </body>
