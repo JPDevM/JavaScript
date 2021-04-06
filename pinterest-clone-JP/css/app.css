@@ -1,0 +1,189 @@
+/* Import de librerías */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url('normalize.css');
+
+/* Variables */
+:root {
+  --mainFontFamily: 'Roboto', 'Helvetica', sans-serif;
+  --colorGray: #efefef;
+  --colorRed: #e60023;
+  --colorBlue: #4a85c9;
+}
+
+/* Basic Styles */
+* {
+  box-sizing: border-box;
+}
+
+:is(figure, ul, ol) {
+  margin: 0;
+  padding: 0;
+}
+
+:is(ul, ol) {
+  list-style: none;
+}
+
+:is(body, html) {
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: var(--mainFontFamily);
+  background-color: var(--colorGray);
+}
+
+/* .main-header */
+.main-header {
+  width: 95%;
+  margin: auto;
+  margin-top: 1.5rem; /* 15px */
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bolder;
+}
+
+.logo {
+  font-size: 2rem;
+  color: var(--colorRed);
+  padding-top: 0.3rem;
+}
+
+.main-navbar {
+  margin-left: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.first-level-nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.first-level-nav > li > a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.8rem;
+  border-radius: 20px;
+  color: black;
+  font-size: 1.3em;
+}
+
+.first-level-nav > li > a:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown > .second-level-nav {
+  display: none;
+  position: absolute;
+  background-color: var(--colorGray);
+  min-width: 15rem;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.3em;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover > .second-level-nav {
+  display: block;
+}
+
+.dropdown > .second-level-nav li {
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+
+.dropdown input[name='picUrlDropdown'],
+.dropdown input[name='picDescriptionDropdown'] {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: transparent;
+}
+
+.dropdown input[name='picUrlDropdown']:focus,
+.dropdown input[name='picDescriptionDropdown']:focus {
+  outline: none !important;
+}
+
+.dropdown button {
+  border-radius: 20px;
+  background-color: lightgray;
+  padding: 8px;
+  border-color: transparent;
+  cursor: pointer;
+  border: 3px solid lightgray;
+}
+
+.dropdown button:hover {
+  border: 3px solid var(--colorBlue);
+}
+
+.login-button {
+  background-color: #dfdfdf;
+  border: none;
+  font-size: 1.4em;
+  margin-left: auto;
+  padding: 0;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  box-shadow: 0 0 0 5px #dfdfdf;
+}
+
+.login-button span {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Grid */
+.grid {
+  /* display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; */
+}
+
+.grid-item {
+  background-color: var(--colorBlue);
+  float: left;
+  width: 46vw;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 3vw;
+}
+
+img {
+  border-radius: 20px;
+  max-width: 46vw;
+  min-width: 46vw;
+}
