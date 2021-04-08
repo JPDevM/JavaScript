@@ -31,7 +31,7 @@ You can get feedback on your project by sharing it on the [freeCodeCamp forum](h
 - [ ] Create a horizontal with 2nd level navbar.
 - [ ] Create a image container and implement Mansori.js.
 - [ ] Add media queries. Mobile First.
-- [ ] Add
+- [ ] Add Github connection
 - [ ]
 - [ ]
 - [ ]
@@ -40,3 +40,9 @@ You can get feedback on your project by sharing it on the [freeCodeCamp forum](h
 ### adicional Task
 
 - [ ] Finish the markdown CSS > 0. Container CSS - Media Queries, Mobile First, Grid CSS, Flexbox.
+
+https://docs.github.com/en/developers/apps/authorizing-oauth-apps#web-application-flow
+
+https://github.com/login/oauth/authorize?client_id=6371f15302a00470d959&redirect_uri=https://www.javier-herrera.com/pinterest-clone&response_type=code
+
+https://github.com/login/oauth/authorize?client_id=94906cad3e9ec1ed39b4&redirect_uri=https://build-a-pinterest-clone.freecodecamp.rocks/auth/github/callback&response_type=code

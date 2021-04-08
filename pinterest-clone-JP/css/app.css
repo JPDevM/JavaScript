@@ -172,6 +172,7 @@ body {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+  margin-top: 30px;
 }
 
 /* Grid */
@@ -196,13 +197,17 @@ body {
 /* Media Queries Source: w3School with bootstrap values. */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (min-width: 576px) {
-} // Innesesario, escribir el css directamente aquí
+}
+/* 
+// Innesesario, escribir el css directamente aquí
 // cambiar los valores por los de boostrap.
 // Grid nunca al body.
+*/
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 576px) {
-} // Borrar todos Only Screen
+} 
+/* // Borrar todos Only Screen */
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -218,4 +223,16 @@ body {
 
 /* Extra large devices (large laptops and desktops, 1400px and up) */
 @media only screen and (min-width: 1400px) {
+}
+
+
+@media only print {
+  .main-header {
+    display: none;
+  }
+  .container {
+    background-color: #fff;
+    padding: 100px;
+    border: 10px solid #000;
+  }
 }
