@@ -1,4 +1,4 @@
-# Build a Pinterest Clone
+### Build a Pinterest Clone
 
 > [Fuente FreeCodeCamp](https://www.freecodecamp.org/learn/coding-interview-prep/#take-home-projects)
 
@@ -16,10 +16,27 @@ Fulfill the below [user stories](https://en.wikipedia.org/wiki/User_story). Use 
 
 **User Story:** As an unauthenticated user, I can browse other users' walls of images.
 
-**User Story:** As an authenticated user, if I upload an image that is broken, it will be replaced by a placeholder image. (can  use jQuery broken image detection)
+**User Story:** As an authenticated user, if I upload an image that is broken, it will be replaced by a placeholder image. (can use jQuery broken image detection)
 
 **Hint:** [Masonry.js](https://masonry.desandro.com/) is a library that allows for Pinterest-style image grids.
 
-Once you've finished implementing these user stories, enter the URL  to your live app and, optionally, your GitHub repository. Then click the "I've completed this challenge" button.
+Once you've finished implementing these user stories, enter the URL to your live app and, optionally, your GitHub repository. Then click the "I've completed this challenge" button.
 
 You can get feedback on your project by sharing it on the [freeCodeCamp forum](https://forum.freecodecamp.org/c/project-feedback/409).
+
+### WorkFlow.
+
+> Step by step.
+
+- [ ] Create a horizontal with 2nd level navbar.
+- [ ] Create a image container and implement Mansori.js.
+- [ ] Add media queries. Mobile First.
+- [ ] Add
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+
+### adicional Task
+
+- [ ] Finish the markdown CSS > 0. Container CSS - Media Queries, Mobile First, Grid CSS, Flexbox.
