@@ -35,7 +35,7 @@ You can get feedback on your project by sharing it on the [freeCodeCamp forum](h
 
 - [x] Create a horizontal 2-level navbar menu.
 - [x] Create a image container and implement Mansori.js.
-- [-] Add media queries. Mobile First.
+- [x] Add media queries. Mobile First.
 - [ ] Conectar con githb:
 - [ ] 1. Crear el backend y subirlo a un servidor.
 - [ ] 1.1 Instalar node.js

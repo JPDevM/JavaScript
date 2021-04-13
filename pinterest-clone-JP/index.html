@@ -35,7 +35,8 @@
 					<ul class="second-level-nav">
 						<form>
 							<li><input type="url" name="picUrlDropdown" id="idPicUrlDropdown" placeholder="pic url..."></li>
-							<li><input type="url" name="picDescriptionDropdown" id="idPicDescriptionDropdown" placeholder="pic description..."></li>
+							<li><input type="url" name="picDescriptionDropdown" id="idPicDescriptionDropdown"
+									placeholder="pic description..."></li>
 							<button type="submit"><i class="fas fa-upload"></i> Upload</button>
 						</form>
 					</ul>
@@ -43,21 +44,126 @@
 			</ul>
 		</nav>
 
-		<button class="login-button">
+		<a class="login-button"
+			href="https://github.com/login/oauth/authorize?client_id=6371f15302a00470d959&redirect_uri=https://www.javier-herrera.com/pinterest-clone&type=code">
 			<i class="fab fa-github"></i>
 			<span>Login</span>
-		</button>
+		</a>
 	</header>
 
 	<!-- Grid -->
 	<div class="container">
 		<div class="grid">
-			<div class="grid-item"><img src="img/1057-200x300.jpg"></div>
-			<div class="grid-item"><img src="img/718-200x400.jpg"></div>
-			<div class="grid-item"><img src="img/256-200x200.jpg"></div>
-			<div class="grid-item"><img src="img/315-200x300.jpg"></div>
-			<div class="grid-item"><img src="img/631-200x200.jpg"></div>
-			<div class="grid-item"><img src="img/819-200x400.jpg"></div>
+			<div class="grid-item">
+				<img src="img/1057-200x300.jpg">
+				<div class="descriptionBox">
+					<p class="desciption">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus reprehenderit, laudantium
+						corporis veritatis, laborum eaque vel hic doloremque ullam quasi dignissimos beatae incidunt, rerum fuga
+						aspernatur iure. Dolores, sunt.
+					</p>
+					<button id="btnOptionItem" onclick="document.getElementById('optionList').style.display='block'">
+						···
+					</button>
+					<div class="modal">
+						<ul id="optionList">
+							<li id="optionSend">Send</li>
+							<li id="optionHide">Hide</li>
+							<li id="optionReport">Report</li>
+						</ul>
+					</div>
+				</div>
+				<div class="user">
+					<img class="userAvatar" src="img/718-200x400.jpg">
+					<p class="name">
+						UserName
+					</p>
+				</div>
+			</div>
+
+
+			<div class="grid-item"><img src="img/718-200x400.jpg">
+				<div class="descriptionBox">
+					<p class="desciption">
+						lorem cortito
+					</p>
+					<button id="optionItem">
+						···
+					</button>
+				</div>
+				<div class="user">
+					<img class="userAvatar" src="img/718-200x400.jpg">
+					<p class="name">
+						UserName
+					</p>
+				</div>
+			</div>
+			<div class="grid-item"><img src="img/256-200x200.jpg">
+				<div class="descriptionBox">
+					<p class="desciption">
+						lorem cortito
+					</p>
+					<button id="optionItem">
+						···
+					</button>
+				</div>
+				<div class="user">
+					<img class="userAvatar" src="img/718-200x400.jpg">
+					<p class="name">
+						UserName
+					</p>
+				</div>
+			</div>
+			<div class="grid-item"><img src="img/315-200x300.jpg">
+				<div class="descriptionBox">
+					<p class="desciption">
+						lorem cortito
+					</p>
+					<button id="optionItem">
+						···
+					</button>
+				</div>
+				<div class="user">
+					<img class="userAvatar" src="img/718-200x400.jpg">
+					<p class="name">
+						UserName
+					</p>
+				</div>
+			</div>
+			<div class="grid-item"><img src="img/631-200x200.jpg">
+				<div class="descriptionBox">
+					<p class="desciption">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum modi culpa quo illo distinctio amet
+						nulla repellat vel molestias quaerat, maiores et quam quisquam reiciendis nihil, dignissimos mollitia?
+						Incidunt?
+					</p>
+					<button id="optionItem">
+						···
+					</button>
+				</div>
+				<div class="user">
+					<img class="userAvatar" src="img/718-200x400.jpg">
+					<p class="name">
+						UserName
+					</p>
+				</div>
+			</div>
+			<div class="grid-item"><img src="img/819-200x400.jpg">
+				<div class="descriptionBox">
+					<p class="desciption">
+						lorem cortito
+					</p>
+					<button id="optionItem">
+						···
+					</button>
+				</div>
+				<div class="user">
+					<img class="userAvatar" src="img/718-200x400.jpg">
+					<p class="name">
+						UserName
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
