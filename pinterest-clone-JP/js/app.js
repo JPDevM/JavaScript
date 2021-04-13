@@ -34,12 +34,11 @@ const urlBody = {
 if (githubCode) {
 	const myHeaders = new Headers();
 	myHeaders.append('Accept', 'application/json');
-	// myHeaders.append("Content-Type", "application/json");
 
 	const raw = JSON.stringify({ 
 		client_id: '6371f15302a00470d959', 
 		client_secret: '9b14cf289dd33b8cacd3d0f2cc65b965769b0ebf', 
-		code: '07ba1b493c6b6251e567' 
+		code: githubCode
 	});
 
 	const requestOptions = {
@@ -54,3 +53,26 @@ if (githubCode) {
 		.then(result => console.log(result))
 		.catch(error => console.log('error', error));
 }
+
+
+// Capturar todos los botones con data-btn="activeModal"
+const activeModalBtns = Array.from(document.querySelectorAll('[data-btn=activeModal]'));
+
+// Iteramos el array de botones, para aplicarle a cada uno de ellos un evento
+activeModalBtns.forEach(oneBtn => {
+	oneBtn.addEventListener('click', () => { 
+		// Capturamos al ancestro
+		const grandParent = oneBtn.parentElement.parentElement;
+		// Capturamos el username
+		const userName = grandParent.querySelector('.user').innerText;
+		console.log(userName);
+		// Capturamos el modal
+		const modalBox = document.querySelector('.modal');
+		// Mostramos el modal
+		modalBox.style.display = 'block';
+		// TEMP - cerrar el modal
+		modalBox.addEventListener('click', () => {
+			modalBox.style.display = 'none';
+		})
+	});
+});
