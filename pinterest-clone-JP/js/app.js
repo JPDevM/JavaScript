@@ -1,3 +1,11 @@
+import enlargeImgs, { caca as objetito } from './modalImages.js';
+
+console.log(objetito.name);
+console.log(objetito.age);
+
+// Cuando las imágenes y el contenido lleguen
+enlargeImgs();
+
 // Add active-input class to input fields
 const inputFields = Array.from( document.querySelectorAll('.second-level-nav input') );
 // Iteramos el array de inputs
@@ -57,7 +65,6 @@ if (githubCode) {
 
 // Capturar todos los botones con data-btn="activeModal"
 const activeModalBtns = Array.from(document.querySelectorAll('[data-btn=activeModal]'));
-
 // Iteramos el array de botones, para aplicarle a cada uno de ellos un evento
 activeModalBtns.forEach(oneBtn => {
 	oneBtn.addEventListener('click', () => { 
@@ -76,3 +83,5 @@ activeModalBtns.forEach(oneBtn => {
 		})
 	});
 });
+
+
