@@ -40,10 +40,5 @@ const generateEnlargeFunction = () => {
 	gridImages.forEach(enlargeImagesHandler);
 }
 
-export const caca = {
-	name: 'Coquito',
-	age: 25
-}
-
 // Esto que exportadas default lo podés renombrar en el import
 export default generateEnlargeFunction;
