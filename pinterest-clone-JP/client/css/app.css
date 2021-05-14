@@ -275,6 +275,37 @@ body {
   text-overflow: ellipsis;
 }
 
+/* Modal Image */
+.modal-image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--colorDark);
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.full-image {
+  max-width: 90%;
+  max-height: 70%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+.full-image-close {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 /* ########################### */
 /* Media Queries Mobile First. */
 /* ########################### */
