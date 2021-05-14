@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/45edf87bb3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+
+    <title>JPDevM Portfolio</title>
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="menu-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+        <!-- MY PHOTO -->
+        <nav class="menu">
+            <div class="menu-branding">
+                <div class="portrait"></div>
+            </div>
+            <!-- NAV BAR -->
+            <ul class="menu-nav">
+                <li class="nav-item current">
+                    <a href="index.html" class="nav-link">
+                        Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        About Me</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="projects.html" class="nav-link">
+                        Projects </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        Contact Me</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <h1 class="lg-heading">
+            Juan Pablo <span class="text-secondary">Devecchi Martinengo</span>
+        </h1>
+        <h2 class="sm-heading">
+            Frontend Web Developer / Mobile Developer
+        </h2>
+        <div class="icons">
+            <a target="_blank" href="https://www.linkedin.com/in/juanpablodm" class="mx-2">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a target="_blank" href="https://github.com/JPDevM/" class="mx-2">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <!-- <a target="_blank" href="https://medium.com/@xxx" class="mx-2">
+                <i class="fab fa-medium fa-2x"></i>
+            </a> -->
+        </div>
+    </main>
+
+
+    <script src="./three.min.js"></script>
+    <script src="js/main.js"> </script>
+    <script>
+        let scene, camera, renderer, starGeo, stars;
+        function init() {
+            //create scene object
+            scene = new THREE.Scene();
+
+            //setup camera with facing upward
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 1;
+            camera.rotation.x = Math.PI / 2;
+
+            //setup renderer
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+
+            starGeo = new THREE.Geometry();
+            for (let i = 0; i < 6000; i++) {
+                let star = new THREE.Vector3(
+                    Math.random() * 600 - 300,
+                    Math.random() * 600 - 300,
+                    Math.random() * 600 - 300
+                );
+                star.velocity = 0;
+                star.acceleration = 0.01; // change the speed
+                starGeo.vertices.push(star);
+            }
+            let sprite = new THREE.TextureLoader().load('./star.png');
+            let starMaterial = new THREE.PointsMaterial({
+                color: 0xaaaaaa,
+                size: 1,
+                map: sprite
+            });
+
+            stars = new THREE.Points(starGeo, starMaterial);
+            scene.add(stars);
+            animate();
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight)
+        }
+
+        //rendering loop
+        function animate() {
+
+            starGeo.vertices.forEach(p => {
+                p.velocity += p.acceleration
+                p.y -= p.velocity;
+
+                if (p.y < -200) {
+                    p.y = 200;
+                    p.velocity = 0;
+                }
+            });
+            starGeo.verticesNeedUpdate = true;
+            stars.rotation.y += 0.002;
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+        init();
+    </script>
+</body>
+
+</html>
