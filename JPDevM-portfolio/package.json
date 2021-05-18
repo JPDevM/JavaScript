@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website",
+  "main": "GLTFLoader.js",
+  "homepage": "https://AlenaNiku.github.io/portfolio-website",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenaNiku/AlenaNiku.github.io"
+  },
+  "author": "Alena Nikulina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlenaNiku/Portfolio/issues"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "gh-pages": "^2.2.0",
+    "node-sass": "^4.14.1"
+  }
+}
