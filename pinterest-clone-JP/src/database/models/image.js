@@ -11,5 +11,12 @@ module.exports = (sequelize, dataTypes) => {
 		}
 	)
 
+	image.associate = (models) => {
+		image.belongsTo(models.user, { 
+			as: 'user',
+			foreignKey: 'userId'
+		})
+	}
+
 	return image;
 }
