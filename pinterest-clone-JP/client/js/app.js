@@ -1,7 +1,7 @@
-import enlargeImgs from './modalImages.js';
+import getImages from './getImages.js';
 
-// Cuando las imágenes y el contenido lleguen
-enlargeImgs();
+// Obtengo las imágenes que tengo en la DB
+getImages();
 
 // Add active-input class to input fields
 const inputFields = Array.from( document.querySelectorAll('.second-level-nav input') );
@@ -47,9 +47,38 @@ activeModalBtns.forEach(oneBtn => {
 });
 
 
-fetch('http://localhost:3000/images')
-	.then(response => response.json())
-	.then(images => {
-		console.log(images);
+// Proceso para almacenar imágenes
+const saveForm = document.querySelector('#saveForm');
+const imageSaved = document.querySelector('.image-saved');
+
+saveForm.addEventListener('submit', e => {
+	e.preventDefault();
+	
+	imageSaved.classList.add('is-visible');
+	
+	const imageData = {
+		urlPath: saveForm.urlPath.value,
+		description: saveForm.description.value,
+	}
+	
+	fetch('http://localhost:3000/images', { 
+		method: 'POST',
+		body: JSON.stringify(imageData),
+		headers: {
+			'Content-Type': 'application/json'
+		}
 	})
-	.catch(error => log.error(error))
+		.then(response => response.json())
+		.then(data => {
+			console.log('se guardó');
+			console.log(data);
+			imageSaved.classList.remove('is-visible');
+			saveForm.reset();
+			document.querySelector('.grid').innerHTML = '';
+			getImages();
+		})
+		.catch(error => {
+			imageSaved.classList.remove('is-visible');
+			console.log(error);
+		})
+})

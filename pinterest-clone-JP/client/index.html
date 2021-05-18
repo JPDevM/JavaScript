@@ -22,6 +22,10 @@
 </head>
 
 <body>
+	<div class="image-saved">
+		<span>Guardando</span>
+		<img src="img/loading.gif" alt="">
+	</div>
 	<header class="main-header">
 		<figure class="logo">
 			<i class="fab fa-pinterest"></i>
@@ -33,9 +37,9 @@
 				<li><a href="#">My pics</a></li>
 				<li class="dropdown"><a href="#"><i class="fas fa-upload"></i></a>
 					<ul class="second-level-nav">
-						<form>
-							<li><input type="url" name="picUrlDropdown" id="idPicUrlDropdown" placeholder="pic url..."></li>
-							<li><input type="url" name="picDescriptionDropdown" id="idPicDescriptionDropdown" placeholder="pic description..."></li>
+						<form id="saveForm">
+							<li><input type="url" name="urlPath" id="idPicUrlDropdown" placeholder="pic url..."></li>
+							<li><input type="text" name="description" id="idPicDescriptionDropdown" placeholder="pic description..."></li>
 							<button type="submit"><i class="fas fa-upload"></i> Upload</button>
 						</form>
 					</ul>
@@ -52,131 +56,6 @@
 	<!-- Grid -->
 	<div class="container">
 		<div class="grid">
-			<div class="grid-item">
-				<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus reprehenderit, laudantium
-						corporis veritatis, laborum eaque vel hic doloremque ullam quasi dignissimos beatae incidunt, rerum fuga
-						aspernatur iure. Dolores, sunt.
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						JuanPa
-					</p>
-				</div>
-			</div>
-			<div class="grid-item">
-				<img src="img/1057-200x300.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus reprehenderit, laudantium
-						corporis veritatis, laborum eaque vel hic doloremque ullam quasi dignissimos beatae incidunt, rerum fuga
-						aspernatur iure. Dolores, sunt.
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						JuanPa
-					</p>
-				</div>
-			</div>
-			<div class="grid-item">
-				<img src="img/718-200x400.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						lorem cortito
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						Javi
-					</p>
-				</div>
-			</div>
-			<div class="grid-item">
-				<img src="img/256-200x200.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						lorem cortito
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						UserName
-					</p>
-				</div>
-			</div>
-			<div class="grid-item">
-				<img src="img/315-200x300.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						lorem cortito
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						UserName
-					</p>
-				</div>
-			</div>
-			<div class="grid-item">
-				<img src="img/631-200x200.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum modi culpa quo illo distinctio amet
-						nulla repellat vel molestias quaerat, maiores et quam quisquam reiciendis nihil, dignissimos mollitia?
-						Incidunt?
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						UserName
-					</p>
-				</div>
-			</div>
-			<div class="grid-item">
-				<img src="img/819-200x400.jpg">
-				<div class="descriptionBox">
-					<p class="desciption">
-						lorem cortito
-					</p>
-					<button data-btn="activeModal">
-						···
-					</button>
-				</div>
-				<div class="user">
-					<img class="userAvatar" src="img/718-200x400.jpg">
-					<p class="name">
-						UserName
-					</p>
-				</div>
-			</div>
 		</div>
 	</div>
 
@@ -191,20 +70,12 @@
 
 	<!-- Modal Imagen -->
 	<div class="modal-image"></div>
+	
+	<!-- Grid JS-->
+	<script src="js/masonry.pkgd.js"></script>
 
 	<!-- Scripts -->
 	<script src="js/app.js" type="module"></script>
-
-	<!-- Grid JS-->
-	<script src="js/masonry.pkgd.js"></script>
-	<script>
-		var elem = document.querySelector('.grid');
-		var msnry = new Masonry(elem, {
-			// options
-			itemSelector: '.grid-item',
-			gutter: 6
-		});
-	</script>
 </body>
 
 </html>
