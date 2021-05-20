@@ -9,7 +9,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL UNIQUE,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `deletedAt` timestamp NULL DEFAULT NULL
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- / Creación de las tablas que tienen FK
@@ -20,6 +20,6 @@ CREATE TABLE `images` (
   `userId` int(10) UNSIGNED DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
