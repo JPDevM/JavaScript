@@ -2,7 +2,7 @@
 CREATE DATABASE pinterest_clone;
 USE pinterest_clone;
 
--- / Crear las tablas
+-- / Create tables without FK 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `userName` varchar(255) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `users` (
   `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- / Creación de las tablas que tienen FK
+-- / Create tables with FK 
 CREATE TABLE `images` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `urlPath` varchar(255) NULL DEFAULT 'no-image.png',
