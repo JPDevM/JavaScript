@@ -3,7 +3,9 @@ const { image } = require('../database/models');
 
 const controller = {
 	browse: (req, res) => {
-		image.findAll()
+		image.findAll({
+			include: ['user']
+		})
 			.then(images => {
 				return res.json(images);
 			})
@@ -18,7 +20,26 @@ const controller = {
 	},
 
 	add: (req, res) => {
-		return rese.send('The Subscriptions Add page works ok');
+		let dataToSave = {
+			urlPath: req.body.urlPath,
+			description: req.body.description,
+			userId: 1,
+		};
+
+		image.create(dataToSave)
+			.then(data => {
+				return res.send({
+					status: 200,
+					message: 'done',
+					data: data
+				});
+			})
+			.catch(error => {
+				return res.status(504).send({
+					status: 504,
+					message: 'Imposible guardar en la DB'
+				})
+			})
 	},
 
 	delete: (req, res) => {

@@ -40,6 +40,33 @@ body {
   background-color: var(--colorGray);
 }
 
+.image-saved {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.image-saved.is-visible {
+  display: flex;
+}
+
+.image-saved span {
+  font-size: 1.5em; 
+}
+
+.image-saved img {
+  width: 60px;
+}
+
 /* .main-header */
 .main-header {
   width: 95%;
@@ -118,15 +145,15 @@ body {
   border: 3px solid var(--colorBlue);
 }
 
-.dropdown input[name='picUrlDropdown'],
-.dropdown input[name='picDescriptionDropdown'] {
+.dropdown input[name='urlPath'],
+.dropdown input[name='description'] {
   background-color: transparent;
   border-color: transparent;
   box-shadow: transparent;
 }
 
-.dropdown input[name='picUrlDropdown']:focus,
-.dropdown input[name='picDescriptionDropdown']:focus {
+.dropdown input[name='urlPath']:focus,
+.dropdown input[name='description']:focus {
   outline: none !important;
 }
 
